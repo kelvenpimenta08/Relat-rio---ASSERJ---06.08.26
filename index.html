@@ -1,60 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Relatório de Performance — Meta Ads | Keep ads</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
- --panel:#ffffff; --panel2:#f7f9fb; --line:#e8ebef; --line2:#d8dde3;
- --txt:#0D0D0D; --dim:#6b7280; --dim2:#9aa5b1;
- --green:#00CA9E; --green-d:#00a884;
- --alert:#ef5b4c; --amber:#D69022; --slate:#6E86A6;
- --shadow:0 1px 3px rgba(13,13,13,.04); --shadow2:0 6px 24px rgba(13,13,13,.06);
-}
+:root{--panel:#ffffff;--panel2:#f7f9fb;--line:#e8ebef;--line2:#d8dde3;--txt:#0D0D0D;--dim:#6b7280;--dim2:#9aa5b1;--green:#00CA9E;--green-d:#00a884;--alert:#ef5b4c;--amber:#D69022;--slate:#6E86A6;--shadow:0 1px 3px rgba(13,13,13,.04)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Inter','Poppins',sans-serif;background:var(--panel2);color:var(--txt);line-height:1.5;padding:0 0 60px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 h1,h2,h3,.pop{font-family:'Poppins',sans-serif}
-
-/* header */
 header{background:var(--panel);border-bottom:2px solid var(--txt);padding:22px 0 20px;margin-bottom:24px}
 .brand{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .logo{font-family:'Poppins';font-weight:800;font-size:24px;letter-spacing:-.5px}
-.logo .k{color:var(--green-d)} .logo .a{color:var(--txt)}
+.logo .k{color:var(--green-d)}.logo .a{color:var(--txt)}
 .logo small{display:block;font-size:10px;font-weight:500;color:var(--dim2);letter-spacing:2px;text-transform:uppercase;margin-top:-2px}
-.hd-meta{text-align:right}
-.hd-meta .t{font-family:'Poppins';font-weight:700;font-size:15px}
-.hd-meta .s{font-size:12px;color:var(--dim)}
-
-/* account tabs */
-.acct{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.hd-meta{text-align:right}.hd-meta .t{font-family:'Poppins';font-weight:700;font-size:15px}.hd-meta .s{font-size:12px;color:var(--dim)}
+.acct{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
 .acct button{font-family:'Poppins';font-weight:600;font-size:14px;padding:11px 20px;border:1px solid var(--line2);background:var(--panel);color:var(--dim);border-radius:12px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
 .acct button .h{font-size:11px;font-weight:500;color:var(--dim2)}
 .acct button.on{background:var(--green);color:#fff;border-color:var(--green)}
 .acct button.on .h{color:rgba(255,255,255,.85)}
-
-/* kpi overview */
+.dates{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;align-items:center}
+.dates .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--dim2);margin-right:4px}
+.dates button{font-family:'Poppins';font-weight:600;font-size:13px;padding:8px 15px;border:1px solid var(--line2);background:var(--panel);color:var(--dim);border-radius:10px;cursor:pointer;transition:.15s}
+.dates button.on{background:var(--green-d);color:#fff;border-color:var(--green-d)}
+.dates button .sub{font-size:10px;font-weight:500;opacity:.8;margin-left:6px}
 .kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
 .kpi .lab{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--dim2);display:flex;align-items:center;gap:6px}
 .kpi .dot{width:8px;height:8px;border-radius:50%}
 .kpi .num{font-family:'Poppins';font-weight:800;font-size:28px;margin-top:8px;letter-spacing:-.5px}
 .kpi .sub{font-size:12px;color:var(--dim);margin-top:2px}
-
-/* section */
+.kpi .delta{font-size:11px;font-weight:600;margin-top:4px}
+.up{color:var(--green-d)}.down{color:var(--alert)}
 .sec-title{font-family:'Poppins';font-weight:700;font-size:16px;margin:30px 0 14px;display:flex;align-items:center;gap:10px}
 .sec-title .bar{width:4px;height:18px;background:var(--green);border-radius:2px}
-
-/* obj filter */
-.filter{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.cmp{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin-bottom:6px}
+.cmp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cmp-obj .ct{font-family:'Poppins';font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.cmp-obj .ct .sw{width:10px;height:10px;border-radius:3px}
+.cmp-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.cmp-row .d{font-size:11px;font-weight:600;color:var(--dim2);width:42px}
+.cmp-bars{flex:1}
+.cmp-bar{height:9px;border-radius:5px;min-width:3px}
+.cmp-row .v{font-size:12px;font-weight:600;font-family:'Poppins';width:78px;text-align:right}
+.cmp-foot{font-size:11px;color:var(--dim);margin-top:6px}
+.filter{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
 .filter button{font-family:'Poppins';font-weight:600;font-size:13px;padding:8px 16px;border:1px solid var(--line2);background:var(--panel);color:var(--dim);border-radius:20px;cursor:pointer;transition:.15s}
 .filter button.on{background:var(--txt);color:#fff;border-color:var(--txt)}
-
-/* obj panel */
-.obj{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:0;box-shadow:var(--shadow);margin-bottom:18px;overflow:hidden}
+.obj{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);margin-bottom:18px;overflow:hidden}
 .obj-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .obj-head .left{display:flex;align-items:center;gap:12px}
 .obj-tag{font-family:'Poppins';font-weight:700;font-size:15px;padding:5px 12px;border-radius:8px;color:#fff}
@@ -62,8 +56,6 @@ header{background:var(--panel);border-bottom:2px solid var(--txt);padding:22px 0
 .obj-stats{display:flex;gap:26px;flex-wrap:wrap}
 .obj-stats .st .v{font-family:'Poppins';font-weight:800;font-size:20px;letter-spacing:-.4px}
 .obj-stats .st .l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--dim2)}
-
-/* table */
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{text-align:left;font-family:'Poppins';font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--dim2);padding:12px 20px;border-bottom:1px solid var(--line);background:var(--panel2)}
 thead th.r,tbody td.r{text-align:right}
@@ -71,20 +63,12 @@ tbody td{padding:11px 20px;border-bottom:1px solid var(--line)}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:var(--panel2)}
 .cname{font-weight:500;max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.barcell{position:relative}
 .barwrap{display:flex;align-items:center;gap:10px;justify-content:flex-end}
 .minibar{height:7px;border-radius:4px;min-width:4px}
 .val-strong{font-family:'Poppins';font-weight:700}
-.pill{font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px}
-.pill.good{background:rgba(0,202,158,.12);color:var(--green-d)}
-.pill.warn{background:rgba(214,144,34,.14);color:var(--amber)}
-.pill.bad{background:rgba(239,91,76,.12);color:var(--alert)}
-
-/* diagnostic */
 .diag{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
 .diag h3{font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.diag p{font-size:13.5px;color:#31363c;margin-bottom:14px}
-.diag p b{color:var(--txt)}
+.diag p{font-size:13.5px;color:#31363c;margin-bottom:14px}.diag p b{color:var(--txt)}
 .diag .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:6px 0 18px}
 .acard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:16px}
 .acard .h{font-family:'Poppins';font-weight:700;font-size:13px;margin-bottom:6px;display:flex;align-items:center;gap:7px}
@@ -94,157 +78,139 @@ tbody tr:hover{background:var(--panel2)}
 .split{height:1px;background:var(--line);margin:20px 0}
 .note{font-size:11.5px;color:var(--dim2);border-left:3px solid var(--line2);padding:6px 0 6px 12px;margin-top:10px}
 footer{text-align:center;font-size:11px;color:var(--dim2);margin-top:34px}
-.hidden{display:none}
-@media(max-width:820px){.kgrid{grid-template-columns:repeat(2,1fr)}.diag .grid2{grid-template-columns:1fr}.cname{max-width:180px}}
-</style>
-</head>
-<body>
+@media(max-width:820px){.kgrid{grid-template-columns:repeat(2,1fr)}.cmp-grid{grid-template-columns:1fr}.diag .grid2{grid-template-columns:1fr}.cname{max-width:170px}}
+</style></head><body>
 <header><div class="wrap brand">
  <div class="logo"><span class="k">Keep</span><span class="a">ads</span><small>performance & estratégia</small></div>
- <div class="hd-meta"><div class="t">Relatório de Performance — Meta Ads</div><div class="s">Período: 05 de agosto de 2026</div></div>
+ <div class="hd-meta"><div class="t">Relatório de Performance — Meta Ads</div><div class="s">Período: 04 e 05 de agosto de 2026</div></div>
 </div></header>
-
 <div class="wrap">
  <div class="acct" id="acct"></div>
+ <div class="dates" id="dates"></div>
  <div class="kgrid" id="kgrid"></div>
-
+ <div class="sec-title"><span class="bar"></span>Comparativo dia a dia · investimento por objetivo</div>
+ <div class="cmp" id="cmp"></div>
  <div class="sec-title"><span class="bar"></span>Resultado por objetivo</div>
  <div class="filter" id="filter"></div>
  <div id="objwrap"></div>
-
  <div class="sec-title"><span class="bar"></span>Diagnóstico e plano de ação</div>
  <div id="diag"></div>
-
  <footer>Keep ads · Relatório gerado a partir da exportação do Gerenciador de Anúncios da Meta · valores em BRL</footer>
 </div>
-
 <script>
-const DATA = {"fabio": {"label": "Fábio Queiroz", "handle": "@fabioqueiroz.asserj", "total": 776.71, "obj": {"Reconhecimento": {"val": 420.32, "res": 317133, "cpr": 0.0013, "creatives": [{"name": "Vamos que ainda tem MUITA", "val": 90.47, "res": 92764, "cpr": 0.001}, {"name": "Agora é oficial!", "val": 70.57, "res": 51971, "cpr": 0.0014}, {"name": "Simbiose é um", "val": 53.25, "res": 43631, "cpr": 0.0012}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 50.15, "res": 37119, "cpr": 0.0014}, {"name": "Os portões da 6ª edição", "val": 42.22, "res": 30362, "cpr": 0.0014}, {"name": "Se o nosso grande objetivo", "val": 35.81, "res": 23161, "cpr": 0.0015}, {"name": "preparados", "val": 30.68, "res": 20577, "cpr": 0.0015}, {"name": "O Troy destrói", "val": 22.01, "res": 18001, "cpr": 0.0012}, {"name": "A @rioinnovationweek é para todas", "val": 13.19, "res": 10598, "cpr": 0.0012}, {"name": "Isso você só vê", "val": 4.38, "res": 3232, "cpr": 0.0014}, {"name": "fabio foto", "val": 4.12, "res": 2885, "cpr": 0.0014}, {"name": "tres imagens", "val": 2.43, "res": 1932, "cpr": 0.0013}, {"name": "Entramos na semana da 6ª", "val": 0.91, "res": 620, "cpr": 0.0015}, {"name": "Descompressão pré-Rio Innovation", "val": 0.03, "res": 216, "cpr": 0.0001}, {"name": "Uma edição histórica! 🤯", "val": 0.02, "res": 57, "cpr": 0.0004}, {"name": "Ela está nascendo!", "val": 0.06, "res": 50, "cpr": 0.0012}, {"name": "Você conhece a marca Innovation", "val": 0.02, "res": 40, "cpr": 0.0005}, {"name": "Se o nosso grande objetivo — Cópia", "val": 0.0, "res": 6, "cpr": 0.0}]}, "Engajamento": {"val": 131.08, "res": 1424, "cpr": 0.0921, "creatives": [{"name": "Me desculpem a emoção", "val": 16.99, "res": 133, "cpr": 0.1277}, {"name": "O Troy destrói", "val": 6.3, "res": 106, "cpr": 0.0594}, {"name": "Vamos que ainda tem MUITA", "val": 17.8, "res": 38, "cpr": 0.4684}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 17.78, "res": 36, "cpr": 0.4939}, {"name": "Simbiose é um", "val": 11.2, "res": 32, "cpr": 0.35}, {"name": "Os portões da 6ª edição", "val": 12.26, "res": 19, "cpr": 0.6453}, {"name": "Se o nosso grande objetivo", "val": 11.54, "res": 18, "cpr": 0.6411}, {"name": "Agora é oficial!", "val": 17.6, "res": 17, "cpr": 1.0353}, {"name": "preparados", "val": 12.66, "res": 12, "cpr": 1.055}, {"name": "Você conhece a marca Innovation", "val": 1.74, "res": 6, "cpr": 0.29}, {"name": "Descompressão pré-Rio Innovation", "val": 1.6, "res": 3, "cpr": 0.5333}, {"name": "Uma edição histórica! 🤯", "val": 1.95, "res": 3, "cpr": 0.65}, {"name": "A @rioinnovationweek é para todas", "val": 0.26, "res": 1, "cpr": 0.26}]}, "Tráfego": {"val": 225.31, "res": 1282, "cpr": 0.1757, "creatives": [{"name": "Os portões da 6ª edição", "val": 46.97, "res": 200, "cpr": 0.2349}, {"name": "A @rioinnovationweek é para todas", "val": 26.9, "res": 161, "cpr": 0.1671}, {"name": "Já que hoje é Dia da...", "val": 14.41, "res": 151, "cpr": 0.0954}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 33.09, "res": 121, "cpr": 0.2735}, {"name": "O Troy destrói", "val": 10.22, "res": 115, "cpr": 0.0889}, {"name": "preparados", "val": 13.54, "res": 114, "cpr": 0.1188}, {"name": "Você tem dificuldades de falar...", "val": 19.94, "res": 102, "cpr": 0.1955}, {"name": "Vamos que ainda tem MUITA", "val": 10.38, "res": 98, "cpr": 0.1059}, {"name": "Simbiose é um", "val": 28.94, "res": 95, "cpr": 0.3046}, {"name": "Se o nosso grande objetivo", "val": 9.76, "res": 64, "cpr": 0.1525}, {"name": "Agora é oficial!", "val": 11.16, "res": 61, "cpr": 0.183}]}}}, "asserj": {"label": "ASSERJ", "handle": "@asserjsupermercados", "total": 317.92, "obj": {"Reconhecimento": {"val": 176.05, "res": 136760, "cpr": 0.0013, "creatives": [{"name": "Com um primeiro dia desses", "val": 37.78, "res": 29241, "cpr": 0.0013}, {"name": "todos prontos", "val": 31.39, "res": 27821, "cpr": 0.0011}, {"name": "Chegou o dia! 🥹", "val": 34.9, "res": 27070, "cpr": 0.0013}, {"name": "Quer sentir o gostinho", "val": 30.68, "res": 23975, "cpr": 0.0013}, {"name": "Primeiro dia de Conecta Varejo", "val": 31.27, "res": 23653, "cpr": 0.0013}, {"name": "O 2º dia de @conectavarejo começou", "val": 4.54, "res": 4930, "cpr": 0.0009}, {"name": "Mais um dia entregue 👊", "val": 0.79, "res": 3644, "cpr": 0.0002}, {"name": "o que existe em comum", "val": 1.88, "res": 1617, "cpr": 0.0012}, {"name": "As grandes transformações", "val": 1.48, "res": 1225, "cpr": 0.0012}, {"name": "Abril também", "val": 1.22, "res": 1147, "cpr": 0.0011}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 0.12, "res": 130, "cpr": 0.0009}]}, "Engajamento": {"val": 95.92, "res": 9047, "cpr": 0.0106, "creatives": [{"name": "Chegou o dia! 🥹", "val": 13.95, "res": 3439, "cpr": 0.0041}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 10.86, "res": 2681, "cpr": 0.0041}, {"name": "As grandes transformações", "val": 7.62, "res": 787, "cpr": 0.0097}, {"name": "As portas da loja do", "val": 1.92, "res": 652, "cpr": 0.0029}, {"name": "Com um primeiro dia desses", "val": 10.37, "res": 530, "cpr": 0.0196}, {"name": "Quer sentir o gostinho", "val": 11.98, "res": 207, "cpr": 0.0579}, {"name": "todos prontos", "val": 7.97, "res": 183, "cpr": 0.0436}, {"name": "Primeiro dia de Conecta Varejo", "val": 14.31, "res": 158, "cpr": 0.0906}, {"name": "⚠️ ATENÇÃO, SUPERMERCADISTA! ⚠️", "val": 6.95, "res": 133, "cpr": 0.0523}, {"name": "O 2º dia de @conectavarejo começou", "val": 6.56, "res": 111, "cpr": 0.0591}, {"name": "o que existe em comum", "val": 1.42, "res": 110, "cpr": 0.0129}, {"name": "Mais um dia entregue 👊", "val": 1.99, "res": 43, "cpr": 0.0463}, {"name": "Hoje foi dia de subir", "val": 0.02, "res": 13, "cpr": 0.0015}]}, "Tráfego": {"val": 45.95, "res": 121, "cpr": 0.3798, "creatives": [{"name": "Seguidores 08.09", "val": 15.77, "res": 39, "cpr": 0.4044}, {"name": "Quando a força 2306", "val": 16.39, "res": 25, "cpr": 0.6556}, {"name": "todos prontos", "val": 3.88, "res": 24, "cpr": 0.1617}, {"name": "Mais um dia entregue 👊", "val": 3.6, "res": 15, "cpr": 0.24}, {"name": "supermarket 03.10", "val": 1.28, "res": 7, "cpr": 0.1829}, {"name": "Chegou o dia! 🥹", "val": 2.29, "res": 6, "cpr": 0.3817}, {"name": "Com um primeiro dia desses", "val": 2.49, "res": 4, "cpr": 0.6225}, {"name": "Mais um dia espetacular", "val": 0.2, "res": 1, "cpr": 0.2}]}}}};
-
-const OBJ_META = {
- 'Reconhecimento':{color:'#6E86A6', unit:'Alcance', unitShort:'pessoas', costLabel:'CPM (custo/mil)',
-   desc:'Fazer a marca aparecer para o máximo de gente do setor. Métrica: pessoas alcançadas e custo por mil impressões.'},
- 'Engajamento':{color:'#00a884', unit:'Interações', unitShort:'interações', costLabel:'Custo por interação',
-   desc:'Gerar curtidas, comentários e salvamentos. Sinaliza qual conteúdo ressoa com a audiência.'},
- 'Tráfego':{color:'#D69022', unit:'Visitas ao perfil', unitShort:'visitas', costLabel:'Custo por visita ao perfil',
-   desc:'Levar gente para o perfil. É o topo do funil de aquisição de seguidor qualificado.'}
-};
-const OBJ_ORDER=['Tráfego','Engajamento','Reconhecimento'];
-
-let curAcct='fabio', curFilter='Todos';
-const fmtBRL=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
-const fmtN=v=>v.toLocaleString('pt-BR');
-const fmtC=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:v<0.1?4:2,maximumFractionDigits:v<0.1?4:2});
-
-function cpmOf(o){return o.cpr*1000;}
-function unitCost(name,o){return name==='Reconhecimento'?cpmOf(o):o.cpr;}
-
-function buildAcct(){
- const el=document.getElementById('acct'); el.innerHTML='';
- for(const k in DATA){const a=DATA[k];const b=document.createElement('button');
-  b.className=k===curAcct?'on':''; b.innerHTML=`${a.label}<span class="h">${a.handle}</span>`;
-  b.onclick=()=>{curAcct=k;curFilter='Todos';render();}; el.appendChild(b);}
-}
-function buildFilter(){
- const el=document.getElementById('filter'); el.innerHTML='';
- ['Todos',...OBJ_ORDER].forEach(f=>{const b=document.createElement('button');
-  b.className=f===curFilter?'on':''; b.textContent=f;
-  b.onclick=()=>{curFilter=f;render();}; el.appendChild(b);});
-}
-function buildKpi(){
- const a=DATA[curAcct], o=a.obj, el=document.getElementById('kgrid');
- const cards=[
-  {lab:'Investimento total',dot:'var(--txt)',num:fmtBRL(a.total),sub:'no período'},
-  {lab:'Alcance',dot:OBJ_META['Reconhecimento'].color,num:fmtN(o['Reconhecimento'].res),sub:'pessoas alcançadas'},
-  {lab:'Interações',dot:OBJ_META['Engajamento'].color,num:fmtN(o['Engajamento'].res),sub:'curtidas, coment., salv.'},
-  {lab:'Visitas ao perfil',dot:OBJ_META['Tráfego'].color,num:fmtN(o['Tráfego'].res),sub:'topo do funil de seguidor'}
- ];
- el.innerHTML=cards.map(c=>`<div class="kpi"><div class="lab"><span class="dot" style="background:${c.dot}"></span>${c.lab}</div><div class="num">${c.num}</div><div class="sub">${c.sub}</div></div>`).join('');
-}
-function objPanel(name){
- const a=DATA[curAcct], o=a.obj[name], m=OBJ_META[name];
- const share=(o.val/a.total*100);
- const uc=unitCost(name,o);
- const maxRes=Math.max(...o.creatives.map(c=>c.res),1);
- const rows=o.creatives.map(c=>{
-   const w=(c.res/maxRes*100).toFixed(0);
-   const cu=name==='Reconhecimento'?c.cpr*1000:c.cpr;
-   return `<tr>
-     <td class="cname" title="${c.name.replace(/"/g,'')}">${c.name}</td>
-     <td class="r barcell"><div class="barwrap"><div class="minibar" style="width:${w}%;background:${m.color}"></div><span class="val-strong">${fmtN(c.res)}</span></div></td>
-     <td class="r">${fmtC(cu)}</td>
-     <td class="r">${fmtBRL(c.val)}</td></tr>`;}).join('');
- return `<div class="obj">
-  <div class="obj-head">
-   <div class="left"><span class="obj-tag" style="background:${m.color}">${name}</span>
-     <span class="obj-desc">${m.desc}</span></div>
-   <div class="obj-stats">
-     <div class="st"><div class="v">${fmtBRL(o.val)}</div><div class="l">Investido · ${share.toFixed(0)}% da verba</div></div>
-     <div class="st"><div class="v">${fmtN(o.res)}</div><div class="l">${m.unit}</div></div>
-     <div class="st"><div class="v" style="color:${m.color}">${fmtC(uc)}</div><div class="l">${m.costLabel}</div></div>
-   </div></div>
-  <table><thead><tr><th>Criativo</th><th class="r">${m.unit}</th><th class="r">${m.costLabel.split(' ')[0]==='CPM'?'CPM':'Custo unit.'}</th><th class="r">Investido</th></tr></thead>
-  <tbody>${rows}</tbody></table></div>`;
-}
-function buildObj(){
- const el=document.getElementById('objwrap');
- const list=curFilter==='Todos'?OBJ_ORDER:[curFilter];
- el.innerHTML=list.map(objPanel).join('');
-}
-function buildDiag(){document.getElementById('diag').innerHTML=DIAG[curAcct];}
-
-function render(){buildAcct();buildFilter();buildKpi();buildObj();buildDiag();}
-
-const DIAG={
+const DATA = {"fabio": {"label": "Fábio Queiroz", "handle": "@fabioqueiroz.asserj", "dates": {"agg": {"total": 942.22, "obj": {"Reconhecimento": {"val": 440.71, "res": 336907, "cpr": 0.0013, "creatives": [{"name": "Vamos que ainda tem MUITA", "val": 90.47, "res": 92764, "cpr": 0.001}, {"name": "Agora é oficial!", "val": 71.46, "res": 52843, "cpr": 0.0014}, {"name": "Simbiose é um", "val": 53.68, "res": 43975, "cpr": 0.0012}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 50.15, "res": 37119, "cpr": 0.0014}, {"name": "Os portões da 6ª edição", "val": 43.84, "res": 31724, "cpr": 0.0014}, {"name": "Se o nosso grande objetivo", "val": 37.84, "res": 24711, "cpr": 0.0015}, {"name": "preparados", "val": 30.68, "res": 20577, "cpr": 0.0015}, {"name": "O Troy destrói", "val": 22.01, "res": 18001, "cpr": 0.0012}, {"name": "A @rioinnovationweek é para todas", "val": 13.19, "res": 10598, "cpr": 0.0012}, {"name": "Isso você só vê", "val": 6.29, "res": 4494, "cpr": 0.0014}, {"name": "fabio foto", "val": 5.01, "res": 3539, "cpr": 0.0014}, {"name": "Já me fizeram muitas perguntas", "val": 3.29, "res": 2810, "cpr": 0.0012}, {"name": "Você conhece a marca Innovation", "val": 3.36, "res": 2601, "cpr": 0.0013}, {"name": "Uma edição histórica! 🤯", "val": 0.7, "res": 2479, "cpr": 0.0003}, {"name": "Descompressão pré-Rio Innovation", "val": 0.6, "res": 2406, "cpr": 0.0002}, {"name": "Dia de mais uma reunião", "val": 2.74, "res": 2402, "cpr": 0.0011}, {"name": "tres imagens", "val": 2.43, "res": 1932, "cpr": 0.0013}, {"name": "Ela está nascendo!", "val": 2.04, "res": 1709, "cpr": 0.0012}, {"name": "Entramos na semana da 6ª", "val": 0.93, "res": 707, "cpr": 0.0013}, {"name": "Se o nosso grande objetivo — Cópia", "val": 0.0, "res": 6, "cpr": 0.0}]}, "Engajamento": {"val": 214.4, "res": 3004, "cpr": 0.0714, "creatives": [{"name": "Me desculpem a emoção", "val": 53.48, "res": 463, "cpr": 0.1155}, {"name": "O Troy destrói", "val": 6.3, "res": 106, "cpr": 0.0594}, {"name": "Você conhece a marca Innovation", "val": 10.64, "res": 65, "cpr": 0.1637}, {"name": "Vamos que ainda tem MUITA", "val": 17.8, "res": 38, "cpr": 0.4684}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 17.78, "res": 36, "cpr": 0.4939}, {"name": "Simbiose é um", "val": 11.2, "res": 32, "cpr": 0.35}, {"name": "Se o nosso grande objetivo", "val": 13.39, "res": 22, "cpr": 0.6086}, {"name": "Descompressão pré-Rio Innovation", "val": 10.35, "res": 21, "cpr": 0.4929}, {"name": "Os portões da 6ª edição", "val": 16.25, "res": 21, "cpr": 0.7738}, {"name": "Agora é oficial!", "val": 20.37, "res": 19, "cpr": 1.0721}, {"name": "Uma edição histórica! 🤯", "val": 8.07, "res": 13, "cpr": 0.6208}, {"name": "preparados", "val": 12.66, "res": 12, "cpr": 1.055}, {"name": "Ela está nascendo!", "val": 5.77, "res": 11, "cpr": 0.5245}, {"name": "Já me fizeram muitas perguntas", "val": 2.09, "res": 10, "cpr": 0.209}, {"name": "Isso é @eu.convidado !", "val": 3.85, "res": 9, "cpr": 0.4278}, {"name": "Entramos na semana da 6ª", "val": 0.89, "res": 9, "cpr": 0.0989}, {"name": "Dia de mais uma reunião", "val": 1.85, "res": 2, "cpr": 0.925}, {"name": "A @rioinnovationweek é para todas", "val": 0.26, "res": 1, "cpr": 0.26}]}, "Tráfego": {"val": 287.11, "res": 1786, "cpr": 0.1608, "creatives": [{"name": "Já que hoje é Dia da...", "val": 47.66, "res": 498, "cpr": 0.0957}, {"name": "Você tem dificuldades de falar...", "val": 48.49, "res": 259, "cpr": 0.1872}, {"name": "Os portões da 6ª edição", "val": 46.97, "res": 200, "cpr": 0.2349}, {"name": "A @rioinnovationweek é para todas", "val": 26.9, "res": 161, "cpr": 0.1671}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 33.09, "res": 121, "cpr": 0.2735}, {"name": "O Troy destrói", "val": 10.22, "res": 115, "cpr": 0.0889}, {"name": "preparados", "val": 13.54, "res": 114, "cpr": 0.1188}, {"name": "Vamos que ainda tem MUITA", "val": 10.38, "res": 98, "cpr": 0.1059}, {"name": "Simbiose é um", "val": 28.94, "res": 95, "cpr": 0.3046}, {"name": "Se o nosso grande objetivo", "val": 9.76, "res": 64, "cpr": 0.1525}, {"name": "Agora é oficial!", "val": 11.16, "res": 61, "cpr": 0.183}]}}}, "04": {"total": 165.51, "obj": {"Reconhecimento": {"val": 20.39, "res": 19774, "cpr": 0.001, "creatives": [{"name": "Já me fizeram muitas perguntas", "val": 3.29, "res": 2810, "cpr": 0.0012}, {"name": "Você conhece a marca Innovation", "val": 3.34, "res": 2561, "cpr": 0.0013}, {"name": "Uma edição histórica! 🤯", "val": 0.68, "res": 2422, "cpr": 0.0003}, {"name": "Dia de mais uma reunião", "val": 2.74, "res": 2402, "cpr": 0.0011}, {"name": "Descompressão pré-Rio Innovation", "val": 0.57, "res": 2190, "cpr": 0.0003}, {"name": "Ela está nascendo!", "val": 1.98, "res": 1659, "cpr": 0.0012}, {"name": "Se o nosso grande objetivo", "val": 2.03, "res": 1550, "cpr": 0.0013}, {"name": "Os portões da 6ª edição", "val": 1.62, "res": 1362, "cpr": 0.0012}, {"name": "Isso você só vê", "val": 1.91, "res": 1262, "cpr": 0.0015}, {"name": "Agora é oficial!", "val": 0.89, "res": 872, "cpr": 0.001}, {"name": "fabio foto", "val": 0.89, "res": 654, "cpr": 0.0014}, {"name": "Simbiose é um", "val": 0.43, "res": 344, "cpr": 0.0013}, {"name": "Entramos na semana da 6ª", "val": 0.02, "res": 87, "cpr": 0.0002}]}, "Engajamento": {"val": 83.32, "res": 1580, "cpr": 0.0527, "creatives": [{"name": "Me desculpem a emoção", "val": 36.49, "res": 330, "cpr": 0.1106}, {"name": "Você conhece a marca Innovation", "val": 8.9, "res": 59, "cpr": 0.1508}, {"name": "Descompressão pré-Rio Innovation", "val": 8.75, "res": 18, "cpr": 0.4861}, {"name": "Ela está nascendo!", "val": 5.77, "res": 11, "cpr": 0.5245}, {"name": "Uma edição histórica! 🤯", "val": 6.12, "res": 10, "cpr": 0.612}, {"name": "Já me fizeram muitas perguntas", "val": 2.09, "res": 10, "cpr": 0.209}, {"name": "Entramos na semana da 6ª", "val": 0.89, "res": 9, "cpr": 0.0989}, {"name": "Isso é @eu.convidado !", "val": 3.85, "res": 9, "cpr": 0.4278}, {"name": "Se o nosso grande objetivo", "val": 1.85, "res": 4, "cpr": 0.4625}, {"name": "Agora é oficial!", "val": 2.77, "res": 2, "cpr": 1.385}, {"name": "Dia de mais uma reunião", "val": 1.85, "res": 2, "cpr": 0.925}, {"name": "Os portões da 6ª edição", "val": 3.99, "res": 2, "cpr": 1.995}]}, "Tráfego": {"val": 61.8, "res": 504, "cpr": 0.1226, "creatives": [{"name": "Já que hoje é Dia da...", "val": 33.25, "res": 347, "cpr": 0.0958}, {"name": "Você tem dificuldades de falar...", "val": 28.55, "res": 157, "cpr": 0.1818}]}}}, "05": {"total": 776.71, "obj": {"Reconhecimento": {"val": 420.32, "res": 317133, "cpr": 0.0013, "creatives": [{"name": "Vamos que ainda tem MUITA", "val": 90.47, "res": 92764, "cpr": 0.001}, {"name": "Agora é oficial!", "val": 70.57, "res": 51971, "cpr": 0.0014}, {"name": "Simbiose é um", "val": 53.25, "res": 43631, "cpr": 0.0012}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 50.15, "res": 37119, "cpr": 0.0014}, {"name": "Os portões da 6ª edição", "val": 42.22, "res": 30362, "cpr": 0.0014}, {"name": "Se o nosso grande objetivo", "val": 35.81, "res": 23161, "cpr": 0.0015}, {"name": "preparados", "val": 30.68, "res": 20577, "cpr": 0.0015}, {"name": "O Troy destrói", "val": 22.01, "res": 18001, "cpr": 0.0012}, {"name": "A @rioinnovationweek é para todas", "val": 13.19, "res": 10598, "cpr": 0.0012}, {"name": "Isso você só vê", "val": 4.38, "res": 3232, "cpr": 0.0014}, {"name": "fabio foto", "val": 4.12, "res": 2885, "cpr": 0.0014}, {"name": "tres imagens", "val": 2.43, "res": 1932, "cpr": 0.0013}, {"name": "Entramos na semana da 6ª", "val": 0.91, "res": 620, "cpr": 0.0015}, {"name": "Descompressão pré-Rio Innovation", "val": 0.03, "res": 216, "cpr": 0.0001}, {"name": "Uma edição histórica! 🤯", "val": 0.02, "res": 57, "cpr": 0.0004}, {"name": "Ela está nascendo!", "val": 0.06, "res": 50, "cpr": 0.0012}, {"name": "Você conhece a marca Innovation", "val": 0.02, "res": 40, "cpr": 0.0005}, {"name": "Se o nosso grande objetivo — Cópia", "val": 0.0, "res": 6, "cpr": 0.0}]}, "Engajamento": {"val": 131.08, "res": 1424, "cpr": 0.0921, "creatives": [{"name": "Me desculpem a emoção", "val": 16.99, "res": 133, "cpr": 0.1277}, {"name": "O Troy destrói", "val": 6.3, "res": 106, "cpr": 0.0594}, {"name": "Vamos que ainda tem MUITA", "val": 17.8, "res": 38, "cpr": 0.4684}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 17.78, "res": 36, "cpr": 0.4939}, {"name": "Simbiose é um", "val": 11.2, "res": 32, "cpr": 0.35}, {"name": "Os portões da 6ª edição", "val": 12.26, "res": 19, "cpr": 0.6453}, {"name": "Se o nosso grande objetivo", "val": 11.54, "res": 18, "cpr": 0.6411}, {"name": "Agora é oficial!", "val": 17.6, "res": 17, "cpr": 1.0353}, {"name": "preparados", "val": 12.66, "res": 12, "cpr": 1.055}, {"name": "Você conhece a marca Innovation", "val": 1.74, "res": 6, "cpr": 0.29}, {"name": "Descompressão pré-Rio Innovation", "val": 1.6, "res": 3, "cpr": 0.5333}, {"name": "Uma edição histórica! 🤯", "val": 1.95, "res": 3, "cpr": 0.65}, {"name": "A @rioinnovationweek é para todas", "val": 0.26, "res": 1, "cpr": 0.26}]}, "Tráfego": {"val": 225.31, "res": 1282, "cpr": 0.1757, "creatives": [{"name": "Os portões da 6ª edição", "val": 46.97, "res": 200, "cpr": 0.2349}, {"name": "A @rioinnovationweek é para todas", "val": 26.9, "res": 161, "cpr": 0.1671}, {"name": "Já que hoje é Dia da...", "val": 14.41, "res": 151, "cpr": 0.0954}, {"name": "Gigante! Fechamos o 1º dia da 6ª", "val": 33.09, "res": 121, "cpr": 0.2735}, {"name": "O Troy destrói", "val": 10.22, "res": 115, "cpr": 0.0889}, {"name": "preparados", "val": 13.54, "res": 114, "cpr": 0.1188}, {"name": "Você tem dificuldades de falar...", "val": 19.94, "res": 102, "cpr": 0.1955}, {"name": "Vamos que ainda tem MUITA", "val": 10.38, "res": 98, "cpr": 0.1059}, {"name": "Simbiose é um", "val": 28.94, "res": 95, "cpr": 0.3046}, {"name": "Se o nosso grande objetivo", "val": 9.76, "res": 64, "cpr": 0.1525}, {"name": "Agora é oficial!", "val": 11.16, "res": 61, "cpr": 0.183}]}}}}}, "asserj": {"label": "ASSERJ", "handle": "@asserjsupermercados", "dates": {"agg": {"total": 453.19, "obj": {"Reconhecimento": {"val": 215.5, "res": 169830, "cpr": 0.0013, "creatives": [{"name": "Chegou o dia! 🥹", "val": 39.1, "res": 30140, "cpr": 0.0013}, {"name": "Com um primeiro dia desses", "val": 37.78, "res": 29241, "cpr": 0.0013}, {"name": "todos prontos", "val": 31.39, "res": 27821, "cpr": 0.0011}, {"name": "Quer sentir o gostinho", "val": 33.78, "res": 26238, "cpr": 0.0013}, {"name": "Primeiro dia de Conecta Varejo", "val": 31.85, "res": 24200, "cpr": 0.0013}, {"name": "Abril também", "val": 11.63, "res": 10649, "cpr": 0.0011}, {"name": "o que existe em comum", "val": 8.86, "res": 7487, "cpr": 0.0012}, {"name": "As grandes transformações", "val": 8.5, "res": 7352, "cpr": 0.0012}, {"name": "O 2º dia de @conectavarejo começou", "val": 4.54, "res": 4930, "cpr": 0.0009}, {"name": "O @conectavarejo está chegando!", "val": 4.04, "res": 3662, "cpr": 0.0011}, {"name": "Mais um dia entregue 👊", "val": 0.79, "res": 3644, "cpr": 0.0002}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 2.84, "res": 2402, "cpr": 0.0012}, {"name": "O @florestasm", "val": 0.4, "res": 360, "cpr": 0.0011}]}, "Engajamento": {"val": 150.84, "res": 17319, "cpr": 0.0087, "creatives": [{"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 17.31, "res": 4566, "cpr": 0.0038}, {"name": "Chegou o dia! 🥹", "val": 19.06, "res": 4349, "cpr": 0.0044}, {"name": "As portas da loja do", "val": 11.48, "res": 4078, "cpr": 0.0028}, {"name": "As grandes transformações", "val": 16.78, "res": 2000, "cpr": 0.0084}, {"name": "o que existe em comum", "val": 9.6, "res": 712, "cpr": 0.0135}, {"name": "Com um primeiro dia desses", "val": 10.37, "res": 530, "cpr": 0.0196}, {"name": "⚠️ ATENÇÃO, SUPERMERCADISTA! ⚠️", "val": 14.39, "res": 261, "cpr": 0.0551}, {"name": "Quer sentir o gostinho", "val": 16.56, "res": 249, "cpr": 0.0665}, {"name": "todos prontos", "val": 7.97, "res": 183, "cpr": 0.0436}, {"name": "Primeiro dia de Conecta Varejo", "val": 15.08, "res": 165, "cpr": 0.0914}, {"name": "O 2º dia de @conectavarejo começou", "val": 6.56, "res": 111, "cpr": 0.0591}, {"name": "O @conectavarejo está chegando!", "val": 3.67, "res": 59, "cpr": 0.0622}, {"name": "Mais um dia entregue 👊", "val": 1.99, "res": 43, "cpr": 0.0463}, {"name": "Hoje foi dia de subir", "val": 0.02, "res": 13, "cpr": 0.0015}]}, "Tráfego": {"val": 86.85, "res": 222, "cpr": 0.3912, "creatives": [{"name": "Seguidores 08.09", "val": 32.28, "res": 91, "cpr": 0.3547}, {"name": "Quando a força 2306", "val": 37.29, "res": 58, "cpr": 0.6429}, {"name": "todos prontos", "val": 3.88, "res": 24, "cpr": 0.1617}, {"name": "supermarket 03.10", "val": 4.77, "res": 23, "cpr": 0.2074}, {"name": "Mais um dia entregue 👊", "val": 3.6, "res": 15, "cpr": 0.24}, {"name": "Chegou o dia! 🥹", "val": 2.29, "res": 6, "cpr": 0.3817}, {"name": "Com um primeiro dia desses", "val": 2.49, "res": 4, "cpr": 0.6225}, {"name": "Mais um dia espetacular", "val": 0.2, "res": 1, "cpr": 0.2}]}}}, "04": {"total": 135.27, "obj": {"Reconhecimento": {"val": 39.45, "res": 33070, "cpr": 0.0012, "creatives": [{"name": "Abril também", "val": 10.41, "res": 9502, "cpr": 0.0011}, {"name": "As grandes transformações", "val": 7.02, "res": 6127, "cpr": 0.0011}, {"name": "o que existe em comum", "val": 6.98, "res": 5870, "cpr": 0.0012}, {"name": "O @conectavarejo está chegando!", "val": 4.04, "res": 3662, "cpr": 0.0011}, {"name": "Chegou o dia! 🥹", "val": 4.2, "res": 3070, "cpr": 0.0014}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 2.72, "res": 2272, "cpr": 0.0012}, {"name": "Quer sentir o gostinho", "val": 3.1, "res": 2263, "cpr": 0.0014}, {"name": "Primeiro dia de Conecta Varejo", "val": 0.58, "res": 547, "cpr": 0.0011}, {"name": "O @florestasm", "val": 0.4, "res": 360, "cpr": 0.0011}]}, "Engajamento": {"val": 54.92, "res": 8272, "cpr": 0.0066, "creatives": [{"name": "As portas da loja do", "val": 9.56, "res": 3426, "cpr": 0.0028}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 6.45, "res": 1885, "cpr": 0.0034}, {"name": "As grandes transformações", "val": 9.16, "res": 1213, "cpr": 0.0076}, {"name": "Chegou o dia! 🥹", "val": 5.11, "res": 910, "cpr": 0.0056}, {"name": "o que existe em comum", "val": 8.18, "res": 602, "cpr": 0.0136}, {"name": "⚠️ ATENÇÃO, SUPERMERCADISTA! ⚠️", "val": 7.44, "res": 128, "cpr": 0.0581}, {"name": "O @conectavarejo está chegando!", "val": 3.67, "res": 59, "cpr": 0.0622}, {"name": "Quer sentir o gostinho", "val": 4.58, "res": 42, "cpr": 0.109}, {"name": "Primeiro dia de Conecta Varejo", "val": 0.77, "res": 7, "cpr": 0.11}]}, "Tráfego": {"val": 40.9, "res": 101, "cpr": 0.405, "creatives": [{"name": "Seguidores 08.09", "val": 16.51, "res": 52, "cpr": 0.3175}, {"name": "Quando a força 2306", "val": 20.9, "res": 33, "cpr": 0.6333}, {"name": "supermarket 03.10", "val": 3.49, "res": 16, "cpr": 0.2181}]}}}, "05": {"total": 317.92, "obj": {"Reconhecimento": {"val": 176.05, "res": 136760, "cpr": 0.0013, "creatives": [{"name": "Com um primeiro dia desses", "val": 37.78, "res": 29241, "cpr": 0.0013}, {"name": "todos prontos", "val": 31.39, "res": 27821, "cpr": 0.0011}, {"name": "Chegou o dia! 🥹", "val": 34.9, "res": 27070, "cpr": 0.0013}, {"name": "Quer sentir o gostinho", "val": 30.68, "res": 23975, "cpr": 0.0013}, {"name": "Primeiro dia de Conecta Varejo", "val": 31.27, "res": 23653, "cpr": 0.0013}, {"name": "O 2º dia de @conectavarejo começou", "val": 4.54, "res": 4930, "cpr": 0.0009}, {"name": "Mais um dia entregue 👊", "val": 0.79, "res": 3644, "cpr": 0.0002}, {"name": "o que existe em comum", "val": 1.88, "res": 1617, "cpr": 0.0012}, {"name": "As grandes transformações", "val": 1.48, "res": 1225, "cpr": 0.0012}, {"name": "Abril também", "val": 1.22, "res": 1147, "cpr": 0.0011}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 0.12, "res": 130, "cpr": 0.0009}]}, "Engajamento": {"val": 95.92, "res": 9047, "cpr": 0.0106, "creatives": [{"name": "Chegou o dia! 🥹", "val": 13.95, "res": 3439, "cpr": 0.0041}, {"name": "NÃO SEJA O PRÓXIMO! ⚠️👀", "val": 10.86, "res": 2681, "cpr": 0.0041}, {"name": "As grandes transformações", "val": 7.62, "res": 787, "cpr": 0.0097}, {"name": "As portas da loja do", "val": 1.92, "res": 652, "cpr": 0.0029}, {"name": "Com um primeiro dia desses", "val": 10.37, "res": 530, "cpr": 0.0196}, {"name": "Quer sentir o gostinho", "val": 11.98, "res": 207, "cpr": 0.0579}, {"name": "todos prontos", "val": 7.97, "res": 183, "cpr": 0.0436}, {"name": "Primeiro dia de Conecta Varejo", "val": 14.31, "res": 158, "cpr": 0.0906}, {"name": "⚠️ ATENÇÃO, SUPERMERCADISTA! ⚠️", "val": 6.95, "res": 133, "cpr": 0.0523}, {"name": "O 2º dia de @conectavarejo começou", "val": 6.56, "res": 111, "cpr": 0.0591}, {"name": "o que existe em comum", "val": 1.42, "res": 110, "cpr": 0.0129}, {"name": "Mais um dia entregue 👊", "val": 1.99, "res": 43, "cpr": 0.0463}, {"name": "Hoje foi dia de subir", "val": 0.02, "res": 13, "cpr": 0.0015}]}, "Tráfego": {"val": 45.95, "res": 121, "cpr": 0.3798, "creatives": [{"name": "Seguidores 08.09", "val": 15.77, "res": 39, "cpr": 0.4044}, {"name": "Quando a força 2306", "val": 16.39, "res": 25, "cpr": 0.6556}, {"name": "todos prontos", "val": 3.88, "res": 24, "cpr": 0.1617}, {"name": "Mais um dia entregue 👊", "val": 3.6, "res": 15, "cpr": 0.24}, {"name": "supermarket 03.10", "val": 1.28, "res": 7, "cpr": 0.1829}, {"name": "Chegou o dia! 🥹", "val": 2.29, "res": 6, "cpr": 0.3817}, {"name": "Com um primeiro dia desses", "val": 2.49, "res": 4, "cpr": 0.6225}, {"name": "Mais um dia espetacular", "val": 0.2, "res": 1, "cpr": 0.2}]}}}}}};
+const DIAG = {
  fabio:`<div class="diag">
-  <h3>🎯 Fábio Queiroz — dia de evento (Rio Innovation Week, 6ª edição)</h3>
-  <p>Dia atípico e de <b>alto investimento: R$ 776,71</b>, cerca de 4,7x um dia normal. A verba concentrou em <b>Reconhecimento (54%)</b> para maximizar a presença da marca no momento do evento, com <b>Tráfego (29%)</b> e <b>Engajamento (17%)</b>. Para um dia de evento, priorizar alcance é a decisão correta: o objetivo é fazer o setor inteiro ver o Fábio no palco.</p>
+  <h3>🎯 Fábio Queiroz — leitura do período (04 e 05/08)</h3>
+  <p>Dois dias de perfis opostos: <b>04/08 um dia comum</b> (R$ 165) e <b>05/08 o dia da Rio Innovation Week</b> (R$ 777). No consolidado, <b>R$ 942,22</b> distribuídos em Reconhecimento (47%), Tráfego (30%) e Engajamento (23%). O período gerou <b>336.907 de alcance</b> e <b>1.786 visitas ao perfil</b> a um custo médio de <b>R$ 0,16/visita</b>, dentro do teto do nicho.</p>
   <div class="grid2">
    <div class="acard"><div class="h"><span class="n">✓</span>O que funcionou</div>
-     <p>Escala de alcance com custo controlado: <b>317.133 pessoas</b> a <b>CPM R$ 1,30</b>. O criativo <b>"Vamos que ainda tem MUITA"</b> sozinho alcançou 92.764 pessoas. No Tráfego, <b>"Já que hoje é Dia da..."</b> segue como o mais eficiente da conta a <b>R$ 0,095/visita</b>, estável em relação a ontem.</p>
-     <div class="imp">Alcance massivo do momento do evento, custo saudável.</div></div>
+     <p>O dia de evento escalou alcance sem estourar custo (CPM de R$ 1,03 para R$ 1,30 com volume 16x maior). O criativo perene <b>"Já que hoje é Dia da..."</b> segue como o mais eficiente de Tráfego nos dois dias (R$ 0,095/visita), provando que aquisita seguidor barato mesmo fora de evento.</p>
+     <div class="imp">Tem um criativo de aquisição validado e estável.</div></div>
    <div class="acard"><div class="h"><span class="n">!</span>Ponto de atenção</div>
-     <p>Os criativos de tráfego temáticos do evento ("Os portões da 6ª" R$ 0,23, "Gigante! Fechamos o 1º dia" R$ 0,27) custam <b>2x a visita</b> do criativo perene. Eles cumprem o papel de cobertura, mas não são o motor de aquisição de seguidor de longo prazo. Engajamento subiu para R$ 0,092/interação (ontem R$ 0,053), esperado num dia de verba alta.</p>
-     <div class="imp">Separar criativo de cobertura de evento do criativo de aquisição.</div></div>
+     <p>No dia do evento, o Tráfego rodou muito com criativos temáticos ("Os portões da 6ª" R$ 0,23, "Gigante! Fechamos" R$ 0,27), que custam ~2x a visita do criativo perene. Servem para cobertura do momento, não para crescimento contínuo.</p>
+     <div class="imp">Separar criativo de cobertura de evento do de aquisição.</div></div>
   </div>
   <div class="split"></div>
   <h3>Plano de ação</h3>
   <div class="grid2">
-   <div class="acard"><div class="h"><span class="n">1</span>Manter o perene sempre ligado</div>
-     <p>Depois do pico do evento, voltar a verba de Tráfego para o criativo "Dia da..." (R$ 0,095/visita), que é o que aquisita seguidor de forma barata e contínua fora da janela de evento.</p>
-     <div class="imp">Impacto: crescimento constante entre eventos, não só nos picos.</div></div>
-   <div class="acard"><div class="h"><span class="n">2</span>Capitalizar o pico de alcance</div>
-     <p>As 317 mil pessoas alcançadas hoje são público quente para retargeting. Subir camada de Tráfego mirando quem engajou com os criativos do evento, convertendo alcance do momento em seguidor.</p>
-     <div class="imp">Impacto: transformar o pico de mídia do evento em base de seguidores.</div></div>
+   <div class="acard"><div class="h"><span class="n">1</span>Perene sempre ligado, evento por cima</div>
+     <p>Manter "Dia da..." rodando de forma contínua (R$ 0,095/visita) como base de crescimento, e usar criativos temáticos só na janela dos eventos.</p>
+     <div class="imp">Impacto: seguidor entrando todo dia, não só nos picos.</div></div>
+   <div class="acard"><div class="h"><span class="n">2</span>Retargeting do pico de alcance</div>
+     <p>As 317 mil pessoas alcançadas no dia do evento são público quente. Subir camada de Tráfego mirando quem engajou, para converter o alcance do momento em seguidor.</p>
+     <div class="imp">Impacto: pico de mídia do evento vira base de seguidores.</div></div>
   </div>
-  <div class="note">Comparativo com 04/08: investimento saltou de R$ 165 para R$ 777. O mix mudou de Engajamento-pesado para Reconhecimento-pesado, coerente com dia de evento. CPM manteve-se saudável (R$ 1,03 → R$ 1,30) mesmo com volume 16x maior de alcance.</div>
+  <div class="note">Use o seletor de data acima para ver cada dia isolado ou o período consolidado. O comparativo mostra o salto de verba e a mudança de mix (Engajamento-pesado no dia comum, Reconhecimento-pesado no dia de evento).</div>
  </div>`,
  asserj:`<div class="diag">
-  <h3>🎯 ASSERJ — encerramento do Conecta Varejo</h3>
-  <p>Investimento de <b>R$ 317,92</b> (2,4x um dia normal), concentrado em <b>Reconhecimento (55%)</b> para amplificar o momento do evento, seguido de <b>Engajamento (30%)</b> e <b>Tráfego (14%)</b>. O engajamento continua sendo o ponto forte da conta, entregando a custo quase nulo.</p>
+  <h3>🎯 ASSERJ — leitura do período (04 e 05/08)</h3>
+  <p>No consolidado, <b>R$ 453,19</b>: Reconhecimento (48%), Engajamento (33%) e Tráfego (19%). O período teve <b>169.830 de alcance</b> e engajamento excepcional (<b>17.319 interações</b>), mas só <b>222 visitas ao perfil</b> a <b>R$ 0,39</b> cada. A conta é forte em presença e engajamento, e fraca no objetivo que puxa seguidor.</p>
   <div class="grid2">
    <div class="acard"><div class="h"><span class="n">✓</span>O que funcionou</div>
-     <p><b>136.760 pessoas</b> alcançadas a <b>CPM R$ 1,30</b>. Engajamento a <b>R$ 0,0106/interação</b>: "Chegou o dia!" e "NÃO SEJA O PRÓXIMO" puxaram 6.120 interações a R$ 0,0041 cada. O conteúdo de evento é, de novo, o ativo de engajamento mais barato da conta.</p>
-     <div class="imp">Conteúdo do Conecta Varejo engaja praticamente de graça.</div></div>
-   <div class="acard"><div class="h"><span class="n">!</span>O gargalo continua no Tráfego</div>
-     <p>Visita ao perfil a <b>R$ 0,38</b>, ainda o dobro do custo do Fábio, e com só 14% da verba. O criativo <b>"Quando a força" segue rodando a R$ 0,66/visita</b>, o mais caro da conta. Já o <b>"todos prontos"</b> apareceu a <b>R$ 0,16/visita</b> mas com apenas R$ 3,88 investidos.</p>
-     <div class="imp">O melhor criativo de aquisição está sub-investido de novo.</div></div>
+     <p>Engajamento a custo quase nulo nos dois dias (R$ 0,0066 e R$ 0,0106/interação). O conteúdo do <b>Conecta Varejo</b> ("Chegou o dia!", "NÃO SEJA O PRÓXIMO", "As portas da loja do") engaja de graça. Reconhecimento saudável a CPM R$ 1,19–1,30.</p>
+     <div class="imp">Conteúdo de evento é o ativo mais barato da conta.</div></div>
+   <div class="acard"><div class="h"><span class="n">!</span>O gargalo persiste no Tráfego</div>
+     <p>Visita ao perfil a <b>R$ 0,39</b> no período, ~2,4x o custo do Fábio (R$ 0,16), com apenas 19% da verba. O criativo <b>"Quando a força" rodou nos dois dias a ~R$ 0,64/visita</b> mesmo após recomendação de pausa. O eficiente <b>"todos prontos" (R$ 0,16)</b> ficou subinvestido.</p>
+     <div class="imp">Melhor criativo de aquisição sub-investido em ambos os dias.</div></div>
   </div>
   <div class="split"></div>
   <h3>Plano de ação</h3>
   <div class="grid2">
    <div class="acard"><div class="h"><span class="n">1</span>Pausar o caro, escalar o barato</div>
-     <p>Follow-up do relatório de ontem: <b>"Quando a força" continua ativo a R$ 0,66/visita</b>. Pausar de vez e realocar para <b>"todos prontos" (R$ 0,16)</b> e "Mais um dia entregue" (R$ 0,24), que são os mais eficientes.</p>
-     <div class="imp">Impacto: custo por visita da conta caindo de R$ 0,38 para ~R$ 0,20.</div></div>
-   <div class="acard"><div class="h"><span class="n">2</span>Aumentar a fatia de Tráfego</div>
-     <p>Só 14% da verba está no objetivo que puxa seguidor. O engajamento já está saturado de eficiência e não rende muito mais empurrão. Subir Tráfego para ~25% da verba, usando o conteúdo de evento como isca.</p>
-     <div class="imp">Impacto: mais visitas qualificadas sem inflar o custo total.</div></div>
+     <p>Pausar de vez <b>"Quando a força" (R$ 0,64/visita)</b> e realocar para <b>"todos prontos" (R$ 0,16)</b> e "Mais um dia entregue" (R$ 0,24).</p>
+     <div class="imp">Impacto: custo por visita da conta caindo de R$ 0,39 para ~R$ 0,20.</div></div>
+   <div class="acard"><div class="h"><span class="n">2</span>Elevar a fatia de Tráfego</div>
+     <p>Subir Tráfego dos atuais 19% para ~25–30% da verba, usando o conteúdo de evento (que já engaja barato) como isca para visita e seguimento.</p>
+     <div class="imp">Impacto: mais seguidor qualificado sem inflar o custo total.</div></div>
   </div>
-  <div class="note">Comparativo com 04/08: investimento subiu de R$ 135 para R$ 318, puxado pelo alcance do evento. Engajamento seguiu baratíssimo. O custo por visita ao perfil praticamente não mudou (R$ 0,41 → R$ 0,38): a recomendação de trocar o criativo de tráfego ainda não teve efeito.</div>
+  <div class="note">Use o seletor de data para isolar cada dia. O custo por visita quase não mudou entre 04 e 05 (R$ 0,41 → R$ 0,38): a troca do criativo de tráfego ainda não teve efeito.</div>
  </div>`
 };
+const OBJ_META={
+ 'Reconhecimento':{color:'#6E86A6',unit:'Alcance',costLabel:'CPM',costFull:'CPM (custo/mil)',desc:'Fazer a marca aparecer para o máximo de gente do setor. Métrica: pessoas alcançadas e custo por mil.'},
+ 'Engajamento':{color:'#00a884',unit:'Interações',costLabel:'Custo unit.',costFull:'Custo por interação',desc:'Gerar curtidas, comentários e salvamentos. Sinaliza qual conteúdo ressoa com a audiência.'},
+ 'Tráfego':{color:'#D69022',unit:'Visitas ao perfil',costLabel:'Custo unit.',costFull:'Custo por visita ao perfil',desc:'Levar gente ao perfil. É o topo do funil de aquisição de seguidor qualificado.'}
+};
+const OBJ_ORDER=['Tráfego','Engajamento','Reconhecimento'];
+const DATE_CHIPS=[['agg','Período','04 e 05 ago'],['04','04 ago','dia comum'],['05','05 ago','dia de evento']];
+let curAcct='fabio',curDate='agg',curFilter='Todos';
+const fmtBRL=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const fmtN=v=>v.toLocaleString('pt-BR');
+const fmtC=v=>'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:v<0.1?4:2,maximumFractionDigits:v<0.1?4:2});
+const unitCost=(name,o)=>name==='Reconhecimento'?o.cpr*1000:o.cpr;
 
+function buildAcct(){const el=document.getElementById('acct');el.innerHTML='';
+ for(const k in DATA){const a=DATA[k];const b=document.createElement('button');
+  b.className=k===curAcct?'on':'';b.innerHTML=`${a.label}<span class="h">${a.handle}</span>`;
+  b.onclick=()=>{curAcct=k;render();};el.appendChild(b);}}
+function buildDates(){const el=document.getElementById('dates');el.innerHTML='<span class="lbl">Data</span>';
+ DATE_CHIPS.forEach(([key,lab,sub])=>{const b=document.createElement('button');
+  b.className=key===curDate?'on':'';b.innerHTML=`${lab}<span class="sub">${sub}</span>`;
+  b.onclick=()=>{curDate=key;render();};el.appendChild(b);});}
+function cur(){return DATA[curAcct].dates[curDate];}
+function buildKpi(){const a=cur(),o=a.obj,el=document.getElementById('kgrid');
+ let delta='';
+ const cards=[
+  {lab:'Investimento',dot:'var(--txt)',num:fmtBRL(a.total),sub:curDate==='agg'?'nos 2 dias':'no dia'},
+  {lab:'Alcance',dot:OBJ_META['Reconhecimento'].color,num:fmtN(o['Reconhecimento'].res),sub:'pessoas'},
+  {lab:'Interações',dot:OBJ_META['Engajamento'].color,num:fmtN(o['Engajamento'].res),sub:'curt., coment., salv.'},
+  {lab:'Visitas ao perfil',dot:OBJ_META['Tráfego'].color,num:fmtN(o['Tráfego'].res),sub:'topo do funil de seguidor'}
+ ];
+ el.innerHTML=cards.map(c=>`<div class="kpi"><div class="lab"><span class="dot" style="background:${c.dot}"></span>${c.lab}</div><div class="num">${c.num}</div><div class="sub">${c.sub}</div></div>`).join('');}
+
+function buildCmp(){
+ const acc=DATA[curAcct],el=document.getElementById('cmp');
+ const d04=acc.dates['04'],d05=acc.dates['05'];
+ let html='<div class="cmp-grid">';
+ OBJ_ORDER.forEach(o=>{const m=OBJ_META[o];
+  const v04=d04.obj[o].val,v05=d05.obj[o].val,mx=Math.max(v04,v05,1);
+  const c04=unitCost(o,d04.obj[o]),c05=unitCost(o,d05.obj[o]);
+  html+=`<div class="cmp-obj"><div class="ct"><span class="sw" style="background:${m.color}"></span>${o}</div>
+   <div class="cmp-row"><span class="d">04 ago</span><div class="cmp-bars"><div class="cmp-bar" style="width:${v04/mx*100}%;background:${m.color};opacity:.55"></div></div><span class="v">${fmtBRL(v04)}</span></div>
+   <div class="cmp-row"><span class="d">05 ago</span><div class="cmp-bars"><div class="cmp-bar" style="width:${v05/mx*100}%;background:${m.color}"></div></div><span class="v">${fmtBRL(v05)}</span></div>
+   <div class="cmp-foot">${m.costLabel}: ${fmtC(c04)} → ${fmtC(c05)}</div></div>`;});
+ html+='</div>';
+ el.innerHTML=html;}
+
+function buildFilter(){const el=document.getElementById('filter');el.innerHTML='';
+ ['Todos',...OBJ_ORDER].forEach(f=>{const b=document.createElement('button');
+  b.className=f===curFilter?'on':'';b.textContent=f;b.onclick=()=>{curFilter=f;render();};el.appendChild(b);});}
+function objPanel(name){const a=cur(),o=a.obj[name],m=OBJ_META[name];
+ const share=(o.val/a.total*100),uc=unitCost(name,o),mx=Math.max(...o.creatives.map(c=>c.res),1);
+ const rows=o.creatives.map(c=>{const w=(c.res/mx*100).toFixed(0);const cu=name==='Reconhecimento'?c.cpr*1000:c.cpr;
+  return `<tr><td class="cname" title="${c.name.replace(/"/g,'')}">${c.name}</td>
+   <td class="r"><div class="barwrap"><div class="minibar" style="width:${w}%;background:${m.color}"></div><span class="val-strong">${fmtN(c.res)}</span></div></td>
+   <td class="r">${fmtC(cu)}</td><td class="r">${fmtBRL(c.val)}</td></tr>`;}).join('');
+ return `<div class="obj"><div class="obj-head"><div class="left"><span class="obj-tag" style="background:${m.color}">${name}</span><span class="obj-desc">${m.desc}</span></div>
+  <div class="obj-stats">
+   <div class="st"><div class="v">${fmtBRL(o.val)}</div><div class="l">Investido · ${share.toFixed(0)}% da verba</div></div>
+   <div class="st"><div class="v">${fmtN(o.res)}</div><div class="l">${m.unit}</div></div>
+   <div class="st"><div class="v" style="color:${m.color}">${fmtC(uc)}</div><div class="l">${m.costFull}</div></div></div></div>
+  <table><thead><tr><th>Criativo</th><th class="r">${m.unit}</th><th class="r">${m.costLabel}</th><th class="r">Investido</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
+function buildObj(){const el=document.getElementById('objwrap');
+ const list=curFilter==='Todos'?OBJ_ORDER:[curFilter];el.innerHTML=list.map(objPanel).join('');}
+function buildDiag(){document.getElementById('diag').innerHTML=DIAG[curAcct];}
+function render(){buildAcct();buildDates();buildKpi();buildCmp();buildFilter();buildObj();buildDiag();}
 render();
-</script>
-</body>
-</html>
+</script></body></html>
